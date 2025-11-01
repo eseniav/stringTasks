@@ -1,0 +1,28 @@
+# Объектные файлы
+*.o
+*.obj
+
+# Исполняемые файлы
+*.exe
+*.out
+*.app
+
+# Файлы сборки
+*.suo
+*.user
+*.userosscache
+*.vs/
+Debug/
+Release/
+x64/
+
+# Временные файлы
+*.tmp
+*.bak
+*.swp
+
+# Файлы отладки
+*.log
+*.ilk
+*.pdb
+*.idb
