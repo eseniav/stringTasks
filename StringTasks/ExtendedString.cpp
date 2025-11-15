@@ -35,15 +35,20 @@ bool ExtendedString::findSubstring(string substring) {
     bool found1 = s.find(substring) != string::npos;
 
     bool found2 = strstr(str, substring.c_str()) != NULL;
-
+    if (found1 != found2) {
+        if (found1)
+            cout << "Подстрока найдена только в первой строке!" << endl;
+        if (found2)
+            cout << "Подстрока найдена только во второй строке!" << endl;
+    }
     return found1 && found2;
 }
 
-string ExtendedString::getString() {
+const string ExtendedString::getString() {
     return s;
 }
 
-char* ExtendedString::getCharString() {
+const char* ExtendedString::getCharString() {
     return str;
 }
 
@@ -51,6 +56,35 @@ size_t ExtendedString::getSize() {
     return stringSize;
 }
 
+void ExtendedStringFile::OutputFile(string path) {
+    ofstream f;
+    f.open(path);
+    if (!f.is_open())
+    {
+        cout << "Не удалось открыть файл " << path << endl;
+    }
+    else
+    {
+        f << getString() << endl;
+        f.close();
+    }
+}
+
+void ExtendedStringFile::ReadFile(string path) {
+    ifstream f;
+    f.open(path);
+    if (!f.is_open())
+    {
+        cout << "Не удалось открыть файл " << path << endl;
+    }
+    else
+    {
+        string s;
+        f >> s;
+        addString(s);
+        f.close();
+    }
+}
 /*Создайте новый класс ExtendedString, в котором сделайте два поля: string s и char[200] str. Также должно быть поле с размером строки.
 Методы:
 1) конструктор по умолчанию

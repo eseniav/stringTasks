@@ -23,6 +23,11 @@ int main()
     cout << "Длина строки: " << es.countSymbols() << endl;
     cout << "Строка string: " << es.getString() << endl;
     cout << "Строка char: " << es.getCharString() << endl;
+    cout << "Поиск: " << es.findSubstring("gggg") << endl;
 
-    cout << "Поиск: " << es.findSubstring("gg") << endl;
+    ExtendedStringFile strFile("Привет gggg hhhh dfsfsf!");
+    //strFile.OutputFile("testFile.txt");
+    strFile.ReadFile("testFile.txt");
+    cout << strFile.getString() << endl;
+    strFile.ReadFile("testFile1.txt");
 }
